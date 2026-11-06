@@ -19,6 +19,16 @@
       "role": "CITIZEN",
       "createdAt": "2026-11-06T09:23:56.592Z",
       "updatedAt": "2026-11-06T09:23:56.592Z"
+    },
+    {
+      "id": "usr-3e5895aa-1d31-41ce-9620-6ad1fed661d6",
+      "fullName": "WASFI ABDUL RAHEEM P R",
+      "email": "4al24ai108@aiet.org.in",
+      "phone": "1234567890",
+      "passwordHash": "$2a$10$XYAeiF0Vkl3cXLXlDZMFeu1ctJ6Qp4nkc4ZaBQmL9BVThfo84nOBq",
+      "role": "CITIZEN",
+      "createdAt": "2026-11-06T10:12:27.402Z",
+      "updatedAt": "2026-11-06T10:12:27.402Z"
     }
   ],
   "categories": [
@@ -124,7 +134,7 @@
       "status": "RESOLVED",
       "priority": "URGENT",
       "createdAt": "2026-11-04T09:23:56.592Z",
-      "updatedAt": "2026-11-06T09:24:54.497Z"
+      "updatedAt": "2026-11-06T10:49:40.315Z"
     },
     {
       "id": "comp-002",
@@ -246,6 +256,42 @@
       "description": "Official resolution recorded: Road excavation completed, base stone compacted, and hot-mix asphalt surface paved smoothly.",
       "updatedById": "usr-admin-01",
       "createdAt": "2026-11-06T09:24:54.497Z"
+    },
+    {
+      "id": "hist-d16ffc1a-a2b7-4f98-a92f-65b614bf01cf",
+      "complaintId": "comp-001",
+      "previousStatus": "RESOLVED",
+      "newStatus": "IN_PROGRESS",
+      "description": "Excavation team on-site with asphalt paving vehicles.",
+      "updatedById": "usr-admin-01",
+      "createdAt": "2026-11-06T10:47:30.242Z"
+    },
+    {
+      "id": "hist-7dd215ee-f826-4247-a0d2-c0932d03b8c0",
+      "complaintId": "comp-001",
+      "previousStatus": "IN_PROGRESS",
+      "newStatus": "RESOLVED",
+      "description": "Official resolution recorded: Road excavation completed, base stone compacted, and hot-mix asphalt surface paved smoothly.",
+      "updatedById": "usr-admin-01",
+      "createdAt": "2026-11-06T10:47:30.271Z"
+    },
+    {
+      "id": "hist-93e9fd51-80d5-4237-9305-de282abfb24a",
+      "complaintId": "comp-001",
+      "previousStatus": "RESOLVED",
+      "newStatus": "IN_PROGRESS",
+      "description": "Excavation team on-site with asphalt paving vehicles.",
+      "updatedById": "usr-admin-01",
+      "createdAt": "2026-11-06T10:49:40.284Z"
+    },
+    {
+      "id": "hist-95cb9d60-b996-4db5-9aeb-7111b2ba633e",
+      "complaintId": "comp-001",
+      "previousStatus": "IN_PROGRESS",
+      "newStatus": "RESOLVED",
+      "description": "Official resolution recorded: Road excavation completed, base stone compacted, and hot-mix asphalt surface paved smoothly.",
+      "updatedById": "usr-admin-01",
+      "createdAt": "2026-11-06T10:49:40.315Z"
     }
   ],
   "resolutionRecords": [
@@ -264,6 +310,22 @@
       "resolvedById": "usr-admin-01",
       "resolvedAt": "2026-11-06T09:24:54.497Z",
       "createdAt": "2026-11-06T09:24:54.497Z"
+    },
+    {
+      "id": "res-e8265e05-8939-433a-a406-8b0532e6c222",
+      "complaintId": "comp-001",
+      "resolutionDescription": "Road excavation completed, base stone compacted, and hot-mix asphalt surface paved smoothly.",
+      "resolvedById": "usr-admin-01",
+      "resolvedAt": "2026-11-06T10:47:30.271Z",
+      "createdAt": "2026-11-06T10:47:30.271Z"
+    },
+    {
+      "id": "res-cd0fc4c8-e819-4f18-b7b4-190b914b7ef0",
+      "complaintId": "comp-001",
+      "resolutionDescription": "Road excavation completed, base stone compacted, and hot-mix asphalt surface paved smoothly.",
+      "resolvedById": "usr-admin-01",
+      "resolvedAt": "2026-11-06T10:49:40.315Z",
+      "createdAt": "2026-11-06T10:49:40.315Z"
     }
   ],
   "resolutionImages": [],
@@ -331,6 +393,78 @@
       "entityId": "comp-001",
       "metadata": "{\"resolutionId\":\"res-11ae85e9-aa74-402b-8c5b-5b6e1750495a\"}",
       "createdAt": "2026-11-06T09:24:54.497Z"
+    },
+    {
+      "id": "log-bacaf237-1c23-4020-aeac-e93dc0f75173",
+      "adminId": "usr-admin-01",
+      "action": "UPDATE_STATUS",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"from\":\"RESOLVED\",\"to\":\"IN_PROGRESS\",\"description\":\"Excavation team on-site with asphalt paving vehicles.\"}",
+      "createdAt": "2026-11-06T10:47:30.242Z"
+    },
+    {
+      "id": "log-4dbdec4b-132e-4832-b2d4-073dfd566485",
+      "adminId": "usr-admin-01",
+      "action": "UPDATE_PRIORITY",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"priority\":\"URGENT\"}",
+      "createdAt": "2026-11-06T10:47:30.252Z"
+    },
+    {
+      "id": "log-cb33a433-5a3f-48f0-a859-262914e49d6e",
+      "adminId": "usr-admin-01",
+      "action": "ASSIGN_DEPARTMENT",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"departmentId\":\"dept-roads\"}",
+      "createdAt": "2026-11-06T10:47:30.262Z"
+    },
+    {
+      "id": "log-1b519793-b041-4213-80f1-4344a66c3bb9",
+      "adminId": "usr-admin-01",
+      "action": "RECORD_RESOLUTION",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"resolutionId\":\"res-e8265e05-8939-433a-a406-8b0532e6c222\"}",
+      "createdAt": "2026-11-06T10:47:30.271Z"
+    },
+    {
+      "id": "log-6473484b-a801-4986-b842-7f77c07aab2c",
+      "adminId": "usr-admin-01",
+      "action": "UPDATE_STATUS",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"from\":\"RESOLVED\",\"to\":\"IN_PROGRESS\",\"description\":\"Excavation team on-site with asphalt paving vehicles.\"}",
+      "createdAt": "2026-11-06T10:49:40.284Z"
+    },
+    {
+      "id": "log-325da2d5-891e-40ee-9286-7ef64d26cd16",
+      "adminId": "usr-admin-01",
+      "action": "UPDATE_PRIORITY",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"priority\":\"URGENT\"}",
+      "createdAt": "2026-11-06T10:49:40.294Z"
+    },
+    {
+      "id": "log-62dc1bd4-a7c7-447a-b256-1044662ae865",
+      "adminId": "usr-admin-01",
+      "action": "ASSIGN_DEPARTMENT",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"departmentId\":\"dept-roads\"}",
+      "createdAt": "2026-11-06T10:49:40.303Z"
+    },
+    {
+      "id": "log-20d88963-b122-4b7f-9345-6fbe1d1b71d0",
+      "adminId": "usr-admin-01",
+      "action": "RECORD_RESOLUTION",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"resolutionId\":\"res-cd0fc4c8-e819-4f18-b7b4-190b914b7ef0\"}",
+      "createdAt": "2026-11-06T10:49:40.315Z"
     }
   ],
   "duplicateSuggestions": [

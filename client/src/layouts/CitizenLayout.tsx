@@ -164,3 +164,4 @@ export const CitizenLayout: React.FC = () => {
     </div>
   );
 };
+

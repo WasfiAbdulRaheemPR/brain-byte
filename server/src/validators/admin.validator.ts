@@ -24,3 +24,4 @@ export const recordResolutionSchema = z.object({
 export const duplicateReviewSchema = z.object({
   reviewStatus: z.enum(['CONFIRMED_DUPLICATE', 'NOT_A_DUPLICATE']),
 });
+

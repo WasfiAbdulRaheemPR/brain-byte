@@ -465,3 +465,4 @@ export const AdminComplaintDetailPage: React.FC = () => {
     </div>
   );
 };
+

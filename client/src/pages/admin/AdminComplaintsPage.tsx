@@ -529,3 +529,4 @@ export const AdminComplaintsPage: React.FC = () => {
     </div>
   );
 };
+

@@ -211,3 +211,4 @@ export const getAuditLogs = async (req: AuthenticatedRequest, res: Response): Pr
     data: { auditLogs },
   });
 };
+

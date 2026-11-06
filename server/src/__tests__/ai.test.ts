@@ -78,3 +78,4 @@ describe('AI Intelligence & Decision-Support Services', () => {
     expect(matches[0].similarityScore).toBeGreaterThan(0.5);
   });
 });
+

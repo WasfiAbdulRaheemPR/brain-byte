@@ -157,3 +157,4 @@ npm --workspace=client run build
 - **Repository:** [https://github.com/WasfiAbdulRaheemPR/brain-byte.git](https://github.com/WasfiAbdulRaheemPR/brain-byte.git)
 - **Primary Branch:** `main`
 - **Commit Standard:** Conventional Commits (`feat:`, `fix:`, `docs:`, `test:`, `chore:`)
+

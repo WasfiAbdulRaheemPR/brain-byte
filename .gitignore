@@ -30,6 +30,7 @@ lerna-debug.log*
 uploads/
 server/uploads/
 client/dist/
+data/
 
 # OS and Editor files
 .DS_Store

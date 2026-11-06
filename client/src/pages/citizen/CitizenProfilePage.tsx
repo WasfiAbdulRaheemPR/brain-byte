@@ -68,3 +68,4 @@ export const CitizenProfilePage: React.FC = () => {
     </div>
   );
 };
+

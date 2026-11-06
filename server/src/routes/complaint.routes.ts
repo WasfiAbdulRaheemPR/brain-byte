@@ -23,3 +23,4 @@ router.get('/:id', authenticate, getComplaintById);
 router.post('/:id/feedback', authenticate, submitFeedback);
 
 export default router;
+

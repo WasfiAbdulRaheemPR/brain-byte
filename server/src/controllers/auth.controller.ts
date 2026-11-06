@@ -38,26 +38,31 @@ export const register = async (req: Request, res: Response): Promise<void> => {
 
   const token = jwt.sign(payload, env.JWT_SECRET, { expiresIn: '7d' });
 
-  // Set HTTP-only secure cookie
+  // Set HTTP-only cookie with standard path and lax sameSite
   res.cookie('civic_token', token, {
     httpOnly: true,
-    secure: env.NODE_ENV === 'production',
-    sameSite: env.NODE_ENV === 'production' ? 'none' : 'lax',
+    secure: env.NODE_ENV === 'production' && Boolean(req.secure),
+    sameSite: 'lax',
+    path: '/',
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   });
+
+  const userResponse = {
+    id: newUser.id,
+    fullName: newUser.fullName,
+    email: newUser.email,
+    phone: newUser.phone,
+    role: newUser.role,
+    createdAt: newUser.createdAt,
+  };
 
   res.status(201).json({
     success: true,
     message: 'Citizen account registered successfully.',
+    user: userResponse,
+    token,
     data: {
-      user: {
-        id: newUser.id,
-        fullName: newUser.fullName,
-        email: newUser.email,
-        phone: newUser.phone,
-        role: newUser.role,
-        createdAt: newUser.createdAt,
-      },
+      user: userResponse,
       token,
     },
   });
@@ -93,26 +98,31 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
   const token = jwt.sign(payload, env.JWT_SECRET, { expiresIn: '7d' });
 
-  // Set HTTP-only secure cookie
+  // Set HTTP-only cookie with standard path and lax sameSite
   res.cookie('civic_token', token, {
     httpOnly: true,
-    secure: env.NODE_ENV === 'production',
-    sameSite: env.NODE_ENV === 'production' ? 'none' : 'lax',
+    secure: env.NODE_ENV === 'production' && Boolean(req.secure),
+    sameSite: 'lax',
+    path: '/',
     maxAge: 7 * 24 * 60 * 60 * 1000,
   });
+
+  const userResponse = {
+    id: user.id,
+    fullName: user.fullName,
+    email: user.email,
+    phone: user.phone,
+    role: user.role,
+    createdAt: user.createdAt,
+  };
 
   res.status(200).json({
     success: true,
     message: 'Authentication successful.',
+    user: userResponse,
+    token,
     data: {
-      user: {
-        id: user.id,
-        fullName: user.fullName,
-        email: user.email,
-        phone: user.phone,
-        role: user.role,
-        createdAt: user.createdAt,
-      },
+      user: userResponse,
       token,
     },
   });
@@ -121,8 +131,9 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 export const logout = async (req: Request, res: Response): Promise<void> => {
   res.clearCookie('civic_token', {
     httpOnly: true,
-    secure: env.NODE_ENV === 'production',
-    sameSite: env.NODE_ENV === 'production' ? 'none' : 'lax',
+    secure: env.NODE_ENV === 'production' && Boolean(req.secure),
+    sameSite: 'lax',
+    path: '/',
   });
 
   res.status(200).json({
@@ -143,17 +154,21 @@ export const getMe = async (req: AuthenticatedRequest, res: Response): Promise<v
     return;
   }
 
+  const userResponse = {
+    id: user.id,
+    fullName: user.fullName,
+    email: user.email,
+    phone: user.phone,
+    role: user.role,
+    createdAt: user.createdAt,
+  };
+
   res.status(200).json({
     success: true,
+    user: userResponse,
     data: {
-      user: {
-        id: user.id,
-        fullName: user.fullName,
-        email: user.email,
-        phone: user.phone,
-        role: user.role,
-        createdAt: user.createdAt,
-      },
+      user: userResponse,
     },
   });
 };
+

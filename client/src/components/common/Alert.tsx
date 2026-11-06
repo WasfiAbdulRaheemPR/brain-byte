@@ -33,3 +33,4 @@ export const Alert: React.FC<AlertProps> = ({ type = 'info', title, message, cla
     </div>
   );
 };
+

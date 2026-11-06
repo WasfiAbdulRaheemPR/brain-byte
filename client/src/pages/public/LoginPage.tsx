@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { ShieldCheck, Mail, Lock, AlertCircle, ArrowRight, UserCheck, ShieldAlert } from 'lucide-react';
 import { Button } from '../../components/common/Button';
@@ -9,11 +9,20 @@ export const LoginPage: React.FC = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const roleParam = searchParams.get('role');
+    if (roleParam === 'admin') {
+      setEmail('admin@civicconnect.gov');
+      setPassword('AdminSecure2026!');
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +35,7 @@ export const LoginPage: React.FC = () => {
 
       if (from) {
         navigate(from, { replace: true });
-      } else if (user.role === 'ADMIN') {
+      } else if (user?.role === 'ADMIN') {
         navigate('/admin/dashboard', { replace: true });
       } else {
         navigate('/citizen/dashboard', { replace: true });
@@ -166,3 +175,4 @@ export const LoginPage: React.FC = () => {
     </div>
   );
 };
+

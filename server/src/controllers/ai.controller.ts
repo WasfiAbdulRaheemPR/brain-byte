@@ -61,3 +61,4 @@ export const summarize = async (req: Request, res: Response): Promise<void> => {
     data: result,
   });
 };
+

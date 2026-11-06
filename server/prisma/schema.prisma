@@ -226,3 +226,4 @@ model DuplicateSuggestion {
   @@index([reviewStatus])
   @@map("duplicate_suggestions")
 }
+

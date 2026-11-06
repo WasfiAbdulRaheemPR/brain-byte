@@ -79,3 +79,4 @@ erDiagram
 
     ResolutionRecord ||--o{ ResolutionImage : "evidenced by"
 ```
+

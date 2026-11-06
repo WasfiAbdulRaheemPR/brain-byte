@@ -2,6 +2,7 @@ import { prisma, checkDatabaseConnection } from '../config/db';
 import { Role, ComplaintStatus, Priority, DuplicateReviewStatus } from '../types';
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
 
 // Pre-seeded Indian municipal categories
@@ -100,7 +101,23 @@ interface LocalDataStore {
   counter: number;
 }
 
-const DATA_FILE = path.resolve(process.cwd(), 'data/local_db.json');
+const getCanonicalDbFile = (): string => {
+  // Check common execution paths: c:\civic_connect\server\data\local_db.json or c:\civic_connect\data\local_db.json
+  const candidateServer = path.resolve(process.cwd(), 'server/data/local_db.json');
+  const candidateCurrent = path.resolve(process.cwd(), 'data/local_db.json');
+  const candidateFromDir = path.resolve(__dirname, '../../data/local_db.json');
+
+  if (fs.existsSync(candidateServer)) return candidateServer;
+  if (fs.existsSync(candidateFromDir)) return candidateFromDir;
+  if (fs.existsSync(candidateCurrent)) return candidateCurrent;
+
+  if (fs.existsSync(path.resolve(process.cwd(), 'server'))) {
+    return candidateServer;
+  }
+  return candidateCurrent;
+};
+
+const DATA_FILE = getCanonicalDbFile();
 
 class LocalStore {
   private data: LocalDataStore;
@@ -117,13 +134,57 @@ class LocalStore {
 
     if (fs.existsSync(DATA_FILE)) {
       try {
-        return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+        const parsed: LocalDataStore = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+        this.ensureDefaultAccounts(parsed);
+        return parsed;
       } catch {
         // Corrupted file, fallback to default seed
       }
     }
 
     return this.initializeSeedData();
+  }
+
+  private ensureDefaultAccounts(data: LocalDataStore): void {
+    if (!Array.isArray(data.users)) {
+      data.users = [];
+    }
+
+    const salt = bcrypt.genSaltSync(10);
+    const adminPassHash = bcrypt.hashSync('AdminSecure2026!', salt);
+    const citizenPassHash = bcrypt.hashSync('CitizenSecure2026!', salt);
+
+    const hasAdmin = data.users.some(
+      (u) => u.email.toLowerCase() === 'admin@civicconnect.gov'
+    );
+    if (!hasAdmin) {
+      data.users.push({
+        id: 'usr-admin-01',
+        fullName: 'Chief Municipal Officer (Admin)',
+        email: 'admin@civicconnect.gov',
+        phone: '+91 80 2297 5000',
+        passwordHash: adminPassHash,
+        role: 'ADMIN' as Role,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      });
+    }
+
+    const hasCitizen = data.users.some(
+      (u) => u.email.toLowerCase() === 'citizen@example.com'
+    );
+    if (!hasCitizen) {
+      data.users.push({
+        id: 'usr-citizen-01',
+        fullName: 'Aarav Sharma',
+        email: 'citizen@example.com',
+        phone: '+91 98765 43210',
+        passwordHash: citizenPassHash,
+        role: 'CITIZEN' as Role,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      });
+    }
   }
 
   private initializeSeedData(): LocalDataStore {
@@ -386,10 +447,13 @@ export class RepositoryManager {
 
   // User queries
   async findUserByEmail(email: string) {
+    const clean = email.toLowerCase().trim();
     if (await this.isPostgres()) {
-      return prisma.user.findUnique({ where: { email } });
+      return prisma.user.findFirst({
+        where: { email: { equals: clean, mode: 'insensitive' } },
+      });
     }
-    return localStore.getStore().users.find((u) => u.email.toLowerCase() === email.toLowerCase()) || null;
+    return localStore.getStore().users.find((u) => u.email.toLowerCase().trim() === clean) || null;
   }
 
   async findUserById(id: string) {
@@ -1224,3 +1288,4 @@ export class RepositoryManager {
 }
 
 export const repo = new RepositoryManager();
+

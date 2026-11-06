@@ -21,3 +21,4 @@ export const feedbackSchema = z.object({
   rating: z.number().int().min(1, 'Rating must be between 1 and 5').max(5),
   comments: z.string().max(1000).optional().nullable(),
 });
+

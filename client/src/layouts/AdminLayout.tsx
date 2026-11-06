@@ -175,3 +175,4 @@ export const AdminLayout: React.FC = () => {
     </div>
   );
 };
+
