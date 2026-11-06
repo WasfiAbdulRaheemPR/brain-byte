@@ -1,0 +1,23 @@
+{
+  "name": "civicconnect",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CivicConnect - Community Problem Reporting and Resolution Platform (PS-14)",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"blue,green\" \"npm --workspace=server run dev\" \"npm --workspace=client run dev\"",
+    "dev:server": "npm --workspace=server run dev",
+    "dev:client": "npm --workspace=client run dev",
+    "build": "npm --workspace=server run build && npm --workspace=client run build",
+    "test": "npm --workspace=server run test && npm --workspace=client run test",
+    "prisma:generate": "npm --workspace=server run prisma:generate",
+    "prisma:migrate": "npm --workspace=server run prisma:migrate",
+    "prisma:seed": "npm --workspace=server run prisma:seed"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
