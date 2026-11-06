@@ -1,0 +1,349 @@
+{
+  "users": [
+    {
+      "id": "usr-admin-01",
+      "fullName": "Chief Municipal Officer (Admin)",
+      "email": "admin@civicconnect.gov",
+      "phone": "+91 80 2297 5000",
+      "passwordHash": "$2a$10$pl27cNvzhP89/rvJsmuPKuGbVie.MU.NvEkMbku3csCCLTvcjuOpG",
+      "role": "ADMIN",
+      "createdAt": "2026-11-06T09:23:56.588Z",
+      "updatedAt": "2026-11-06T09:23:56.592Z"
+    },
+    {
+      "id": "usr-citizen-01",
+      "fullName": "Aarav Sharma",
+      "email": "citizen@example.com",
+      "phone": "+91 98765 43210",
+      "passwordHash": "$2a$10$pl27cNvzhP89/rvJsmuPKuRK4C8NhAgp34.cRAOA.5S5fXcdzLsxS",
+      "role": "CITIZEN",
+      "createdAt": "2026-11-06T09:23:56.592Z",
+      "updatedAt": "2026-11-06T09:23:56.592Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-roads",
+      "name": "Roads & Infrastructure",
+      "description": "Potholes, broken footpaths, road cracks, divider collapses, and hazardous street craters.",
+      "icon": "Construction",
+      "createdAt": "2026-11-06T09:23:56.592Z"
+    },
+    {
+      "id": "cat-electrical",
+      "name": "Electrical & Streetlights",
+      "description": "Damaged or unlit streetlights, exposed live wires, transformers, and electrical poles.",
+      "icon": "Lightbulb",
+      "createdAt": "2026-11-06T09:23:56.592Z"
+    },
+    {
+      "id": "cat-waste",
+      "name": "Waste Management",
+      "description": "Overflowing public garbage bins, illegal dumping sites, animal waste, and uncollected trash.",
+      "icon": "Trash2",
+      "createdAt": "2026-11-06T09:23:56.592Z"
+    },
+    {
+      "id": "cat-water",
+      "name": "Water Supply & Drainage",
+      "description": "Drinking water pipeline leaks, contaminated supply, blocked storm drains, and sewage overflow.",
+      "icon": "Droplets",
+      "createdAt": "2026-11-06T09:23:56.592Z"
+    },
+    {
+      "id": "cat-public-facilities",
+      "name": "Public Facilities",
+      "description": "Damaged park benches, public toilets, bus stops, sidewalks, and community parks.",
+      "icon": "Building2",
+      "createdAt": "2026-11-06T09:23:56.592Z"
+    },
+    {
+      "id": "cat-other",
+      "name": "General Community Issues",
+      "description": "Encroachments, stray hazards, fallen tree branches, and miscellaneous civic issues.",
+      "icon": "Layers",
+      "createdAt": "2026-11-06T09:23:56.592Z"
+    }
+  ],
+  "departments": [
+    {
+      "id": "dept-roads",
+      "name": "Roads and Infrastructure Department",
+      "description": "Municipal roadway engineering, asphalt repairs, footpaths, and storm drains.",
+      "isActive": true,
+      "createdAt": "2026-11-06T09:23:56.592Z"
+    },
+    {
+      "id": "dept-electrical",
+      "name": "Electrical & Lighting Maintenance",
+      "description": "Public illumination, streetlight grids, and low-voltage electrical safety.",
+      "isActive": true,
+      "createdAt": "2026-11-06T09:23:56.592Z"
+    },
+    {
+      "id": "dept-waste",
+      "name": "Solid Waste Management & Sanitation",
+      "description": "Municipal garbage collection, sanitation drives, recycling, and composting facilities.",
+      "isActive": true,
+      "createdAt": "2026-11-06T09:23:56.592Z"
+    },
+    {
+      "id": "dept-water",
+      "name": "Water Supply & Sewerage Board",
+      "description": "Potable water pipelines, sewage treatment, storm drainage, and valve maintenance.",
+      "isActive": true,
+      "createdAt": "2026-11-06T09:23:56.592Z"
+    },
+    {
+      "id": "dept-facilities",
+      "name": "Public Works & Parks Maintenance",
+      "description": "Civic amenities, municipal buildings, recreation parks, and community fixtures.",
+      "isActive": true,
+      "createdAt": "2026-11-06T09:23:56.592Z"
+    },
+    {
+      "id": "dept-admin",
+      "name": "General Municipal Administration",
+      "description": "Citizen grievance redressal, inter-department coordination, and civic compliance.",
+      "isActive": true,
+      "createdAt": "2026-11-06T09:23:56.592Z"
+    }
+  ],
+  "complaints": [
+    {
+      "id": "comp-001",
+      "complaintNumber": "CC-2026-000001",
+      "userId": "usr-citizen-01",
+      "categoryId": "cat-roads",
+      "departmentId": "dept-roads",
+      "title": "Deep Hazardous Pothole near 100ft Road Junction",
+      "description": "Large crater-sized pothole spanning approximately 1.5 meters across the left vehicular lane. Causing severe traffic congestion and poses serious safety risk to two-wheelers.",
+      "latitude": 12.9716,
+      "longitude": 77.5946,
+      "address": "100ft Road, Indiranagar, Bengaluru, Karnataka",
+      "status": "RESOLVED",
+      "priority": "URGENT",
+      "createdAt": "2026-11-04T09:23:56.592Z",
+      "updatedAt": "2026-11-06T09:24:54.497Z"
+    },
+    {
+      "id": "comp-002",
+      "complaintNumber": "CC-2026-000002",
+      "userId": "usr-citizen-01",
+      "categoryId": "cat-electrical",
+      "departmentId": "dept-electrical",
+      "title": "Non-Functional Streetlights in Residential Block 4",
+      "description": "A stretch of 6 consecutive streetlamps has been unlit for the past 4 nights. Road is completely dark creating security concerns for walking residents.",
+      "latitude": 12.9352,
+      "longitude": 77.6245,
+      "address": "4th Block, Koramangala, Bengaluru, Karnataka",
+      "status": "UNDER_REVIEW",
+      "priority": "MEDIUM",
+      "createdAt": "2026-11-05T09:23:56.592Z",
+      "updatedAt": "2026-11-05T15:23:56.592Z"
+    },
+    {
+      "id": "comp-003",
+      "complaintNumber": "CC-2026-000003",
+      "userId": "usr-citizen-01",
+      "categoryId": "cat-waste",
+      "departmentId": "dept-waste",
+      "title": "Overflowing Municipal Dumpster near Public School",
+      "description": "Refuse has overflowed onto the pedestrian pavement outside St. Mary’s school gate. Emitting strong foul odor and attracting stray cattle.",
+      "latitude": 13.0358,
+      "longitude": 77.597,
+      "address": "Bellary Road, Hebbal, Bengaluru, Karnataka",
+      "status": "SUBMITTED",
+      "priority": "URGENT",
+      "createdAt": "2026-11-06T05:23:56.592Z",
+      "updatedAt": "2026-11-06T05:23:56.592Z"
+    },
+    {
+      "id": "comp-004",
+      "complaintNumber": "CC-2026-000004",
+      "userId": "usr-citizen-01",
+      "categoryId": "cat-water",
+      "departmentId": "dept-water",
+      "title": "Freshwater Main Pipe Burst and Submersion",
+      "description": "Underground potable water conduit burst creating geyser and flooding road corner. Drinking water wasted continuously for over 6 hours.",
+      "latitude": 12.9279,
+      "longitude": 77.6271,
+      "address": "5th Block, Jayanagar, Bengaluru, Karnataka",
+      "status": "RESOLVED",
+      "priority": "URGENT",
+      "createdAt": "2026-11-03T09:23:56.592Z",
+      "updatedAt": "2026-11-06T03:23:56.592Z"
+    },
+    {
+      "id": "comp-005",
+      "complaintNumber": "CC-2026-000005",
+      "userId": "usr-citizen-01",
+      "categoryId": "cat-public-facilities",
+      "departmentId": "dept-facilities",
+      "title": "Vandalized Children Swing and Park Benches",
+      "description": "Children playground swing chain broken and 2 concrete benches overturned inside the ward community park.",
+      "latitude": 12.9856,
+      "longitude": 77.6057,
+      "address": "Cubbon Park Ward, Central Bengaluru, Karnataka",
+      "status": "SUBMITTED",
+      "priority": "LOW",
+      "createdAt": "2026-11-06T01:23:56.592Z",
+      "updatedAt": "2026-11-06T01:23:56.592Z"
+    }
+  ],
+  "complaintImages": [],
+  "statusHistory": [
+    {
+      "id": "hist-001",
+      "complaintId": "comp-001",
+      "previousStatus": null,
+      "newStatus": "SUBMITTED",
+      "description": "Complaint registered by citizen with geolocation tag.",
+      "updatedById": "usr-citizen-01",
+      "createdAt": "2026-11-04T09:23:56.592Z"
+    },
+    {
+      "id": "hist-002",
+      "complaintId": "comp-001",
+      "previousStatus": "SUBMITTED",
+      "newStatus": "UNDER_REVIEW",
+      "description": "Triage officer inspected photographic evidence and verified road damage.",
+      "updatedById": "usr-admin-01",
+      "createdAt": "2026-11-04T21:23:56.592Z"
+    },
+    {
+      "id": "hist-003",
+      "complaintId": "comp-001",
+      "previousStatus": "UNDER_REVIEW",
+      "newStatus": "IN_PROGRESS",
+      "description": "Assigned to Roads & Infrastructure field team; asphalt mix dispatched.",
+      "updatedById": "usr-admin-01",
+      "createdAt": "2026-11-05T21:23:56.592Z"
+    },
+    {
+      "id": "hist-004",
+      "complaintId": "comp-004",
+      "previousStatus": "IN_PROGRESS",
+      "newStatus": "RESOLVED",
+      "description": "Pipeline welding completed, water pressure normalized and road re-tarred.",
+      "updatedById": "usr-admin-01",
+      "createdAt": "2026-11-06T03:23:56.592Z"
+    },
+    {
+      "id": "hist-deecf117-2e09-495b-8ffc-35e837fd9f2f",
+      "complaintId": "comp-001",
+      "previousStatus": "IN_PROGRESS",
+      "newStatus": "IN_PROGRESS",
+      "description": "Excavation team on-site with asphalt paving vehicles.",
+      "updatedById": "usr-admin-01",
+      "createdAt": "2026-11-06T09:24:54.452Z"
+    },
+    {
+      "id": "hist-11870adc-5df5-4348-88ee-4d66bf36b65c",
+      "complaintId": "comp-001",
+      "previousStatus": "IN_PROGRESS",
+      "newStatus": "RESOLVED",
+      "description": "Official resolution recorded: Road excavation completed, base stone compacted, and hot-mix asphalt surface paved smoothly.",
+      "updatedById": "usr-admin-01",
+      "createdAt": "2026-11-06T09:24:54.497Z"
+    }
+  ],
+  "resolutionRecords": [
+    {
+      "id": "res-004",
+      "complaintId": "comp-004",
+      "resolutionDescription": "Municipal water maintenance division excavated damaged pipe section, replaced 4m ductile iron pipeline, and completed high-pressure weld sealing. Road restored.",
+      "resolvedById": "usr-admin-01",
+      "resolvedAt": "2026-11-06T03:23:56.592Z",
+      "createdAt": "2026-11-06T03:23:56.592Z"
+    },
+    {
+      "id": "res-11ae85e9-aa74-402b-8c5b-5b6e1750495a",
+      "complaintId": "comp-001",
+      "resolutionDescription": "Road excavation completed, base stone compacted, and hot-mix asphalt surface paved smoothly.",
+      "resolvedById": "usr-admin-01",
+      "resolvedAt": "2026-11-06T09:24:54.497Z",
+      "createdAt": "2026-11-06T09:24:54.497Z"
+    }
+  ],
+  "resolutionImages": [],
+  "feedbacks": [
+    {
+      "id": "fb-004",
+      "complaintId": "comp-004",
+      "userId": "usr-citizen-01",
+      "rating": 5,
+      "comments": "Prompt response from the water board team within 24 hours of reporting!",
+      "createdAt": "2026-11-06T07:23:56.592Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "log-001",
+      "adminId": "usr-admin-01",
+      "action": "UPDATE_STATUS",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"from\":\"UNDER_REVIEW\",\"to\":\"IN_PROGRESS\"}",
+      "createdAt": "2026-11-05T21:23:56.592Z"
+    },
+    {
+      "id": "log-002",
+      "adminId": "usr-admin-01",
+      "action": "RECORD_RESOLUTION",
+      "entityType": "Complaint",
+      "entityId": "comp-004",
+      "metadata": "{\"resolutionId\":\"res-004\"}",
+      "createdAt": "2026-11-06T03:23:56.592Z"
+    },
+    {
+      "id": "log-d2c8387a-107f-4b18-bb5b-5df392184cb6",
+      "adminId": "usr-admin-01",
+      "action": "UPDATE_STATUS",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"from\":\"IN_PROGRESS\",\"to\":\"IN_PROGRESS\",\"description\":\"Excavation team on-site with asphalt paving vehicles.\"}",
+      "createdAt": "2026-11-06T09:24:54.452Z"
+    },
+    {
+      "id": "log-b922e18e-52c4-46f0-b13f-5b459d682a55",
+      "adminId": "usr-admin-01",
+      "action": "UPDATE_PRIORITY",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"priority\":\"URGENT\"}",
+      "createdAt": "2026-11-06T09:24:54.468Z"
+    },
+    {
+      "id": "log-6ce111e9-407f-4b07-bc15-64f8e0faf5d3",
+      "adminId": "usr-admin-01",
+      "action": "ASSIGN_DEPARTMENT",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"departmentId\":\"dept-roads\"}",
+      "createdAt": "2026-11-06T09:24:54.482Z"
+    },
+    {
+      "id": "log-53b1967f-d33b-410a-9c5d-c4b05969712d",
+      "adminId": "usr-admin-01",
+      "action": "RECORD_RESOLUTION",
+      "entityType": "Complaint",
+      "entityId": "comp-001",
+      "metadata": "{\"resolutionId\":\"res-11ae85e9-aa74-402b-8c5b-5b6e1750495a\"}",
+      "createdAt": "2026-11-06T09:24:54.497Z"
+    }
+  ],
+  "duplicateSuggestions": [
+    {
+      "id": "dup-001",
+      "complaintId": "comp-001",
+      "possibleDuplicateId": "comp-005",
+      "similarityScore": 0.35,
+      "reason": "Both reports from Central Bangalore ward zone.",
+      "reviewStatus": "PENDING",
+      "reviewedById": null,
+      "createdAt": "2026-11-06T05:23:56.592Z"
+    }
+  ],
+  "counter": 6
+}
